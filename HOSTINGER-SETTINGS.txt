@@ -1,0 +1,7 @@
+Hostinger settings:
+Framework preset: React
+Node version: 18.x
+Root directory: /
+Build command: npm run build
+Package manager: npm
+Output directory: build

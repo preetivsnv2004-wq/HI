@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aurashine-build",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve-build.js"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /static/
+
+Sitemap: https://aurashineinfotech.com/sitemap.xml
+
+# Crawl budget optimization
+Crawl-Delay: 2
