@@ -1,0 +1,802 @@
+/* Blog-only colour override: preserves existing layout and structure. */
+.premium-blog-page {
+  --blog-bg: #0F1B2D;
+  --blog-bg-2: #14243A;
+  --blog-card: #172A44;
+  --blog-card-hover: #1D3554;
+  --blog-gold: #f5aa02;
+  --blog-gold-light: #f5aa02;
+  --blog-gold-soft: #f5aa02;
+  --blog-heading: #FFF8E7;
+  --blog-body: #C7D0DD;
+  --blog-muted: #8E9AAD;
+  --blog-border: rgba(212, 167, 44, .18);
+  --blog-divider: rgba(255, 255, 255, .08);
+  background: var(--blog-bg) !important;
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page main,
+.premium-blog-page main.bg-white,
+.premium-blog-page main.bg-\[\#fbfaf7\],
+.premium-blog-page section.bg-white,
+.premium-blog-page section.bg-\[\#fbfaf7\],
+.premium-blog-page section.bg-primary\/5,
+.premium-blog-page section.bg-gradient-to-b {
+  background: var(--blog-bg) !important;
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page main > section:first-child,
+.premium-blog-page section.bg-secondary,
+.premium-blog-page section.bg-gradient-to-br,
+.premium-blog-page section.bg-gradient-to-br.from-\[\#07111f\] {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(212, 167, 44, .18), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgba(244, 214, 117, .10), transparent 28%),
+    linear-gradient(135deg, #0F1B2D 0%, #14243A 58%, #1A2E49 100%) !important;
+  color: var(--blog-heading) !important;
+}
+
+.premium-blog-page .blx-filterbar,
+.premium-blog-page section.sticky {
+  background: rgba(15, 27, 45, .92) !important;
+  border-color: var(--blog-border) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28) !important;
+}
+
+.premium-blog-page article,
+.premium-blog-page .blx-card,
+.premium-blog-page .bg-white,
+.premium-blog-page .bg-white\/10,
+.premium-blog-page .rounded-3xl,
+.premium-blog-page .rounded-\[2rem\] {
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page .blx-card,
+.premium-blog-page article.bg-white,
+.premium-blog-page div.bg-white,
+.premium-blog-page details,
+.premium-blog-page .bg-\[\#fbfaf7\],
+.premium-blog-page .bg-\[\#f8f7f4\] {
+  background: var(--blog-card) !important;
+  color: var(--blog-body) !important;
+  box-shadow: 0 18px 52px rgba(0, 0, 0, .24) !important;
+}
+
+.premium-blog-page .blx-card:hover,
+.premium-blog-page a.rounded-3xl:hover,
+.premium-blog-page details:hover {
+  background: var(--blog-card-hover) !important;
+  border-color: rgba(212, 167, 44, .42) !important;
+}
+
+.premium-blog-page h1,
+.premium-blog-page h2,
+.premium-blog-page h3,
+.premium-blog-page h4,
+.premium-blog-page .text-secondary,
+.premium-blog-page summary {
+  color: var(--blog-heading) !important;
+}
+
+.premium-blog-page p,
+.premium-blog-page li,
+.premium-blog-page .text-gray-600,
+.premium-blog-page .text-gray-700,
+.premium-blog-page .text-gray-300,
+.premium-blog-page .text-gray-200 {
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page .text-gray-400,
+.premium-blog-page .text-gray-500,
+.premium-blog-page .text-sm,
+.premium-blog-page .uppercase {
+  color: var(--blog-muted) !important;
+}
+
+.premium-blog-page .text-primary,
+.premium-blog-page .text-primary-light,
+.premium-blog-page .text-\[\#f5aa02\],
+.premium-blog-page .text-\[\#f5aa02\],
+.premium-blog-page .blx-readmore,
+.premium-blog-page a:not(.btn-primary) {
+  color: var(--blog-gold-light) !important;
+}
+
+.premium-blog-page .bg-primary,
+.premium-blog-page .bg-\[\#f5aa02\],
+.premium-blog-page button.bg-primary,
+.premium-blog-page .btn-primary {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #07111F !important;
+  border-color: rgba(244, 214, 117, .35) !important;
+}
+
+.premium-blog-page .bg-primary\/10,
+.premium-blog-page .bg-primary\/5,
+.premium-blog-page .bg-\[\#f5aa02\]\/12,
+.premium-blog-page .bg-\[\#fff8e6\] {
+  background: rgba(212, 167, 44, .10) !important;
+}
+
+.premium-blog-page .border-gray-100,
+.premium-blog-page .border-gray-200,
+.premium-blog-page .border-white\/10,
+.premium-blog-page .border-primary\/20,
+.premium-blog-page .border-\[\#f5aa02\]\/20,
+.premium-blog-page .border-\[\#f5aa02\]\/25,
+.premium-blog-page .border-\[\#f5aa02\]\/30,
+.premium-blog-page .border-\[\#f5aa02\]\/35 {
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page input,
+.premium-blog-page textarea,
+.premium-blog-page select {
+  background: #14243A !important;
+  color: var(--blog-heading) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page input::placeholder,
+.premium-blog-page textarea::placeholder {
+  color: var(--blog-muted) !important;
+}
+
+.premium-blog-page input:focus,
+.premium-blog-page textarea:focus,
+.premium-blog-page select:focus {
+  border-color: var(--blog-gold) !important;
+  box-shadow: 0 0 0 3px rgba(212, 167, 44, .16) !important;
+}
+
+.premium-blog-page button:not(.bg-primary) {
+  background: #172A44 !important;
+  color: var(--blog-body) !important;
+  border: 1px solid var(--blog-border) !important;
+}
+
+.premium-blog-page button:not(.bg-primary):hover {
+  background: #1D3554 !important;
+  color: var(--blog-gold-light) !important;
+}
+
+.premium-blog-page .homx-shimmer-text,
+.premium-blog-page .gradient-text {
+  background: linear-gradient(90deg, var(--blog-gold), var(--blog-gold-light), var(--blog-gold-soft)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.premium-blog-page img {
+  border-color: var(--blog-border) !important;
+}
+
+/* Stronger blog-only overrides for older plum/pink blog palette files. */
+.premium-blog-page [class*="from-primary"],
+.premium-blog-page [class*="to-primary"],
+.premium-blog-page [class*="via-primary"],
+.premium-blog-page [class*="from-[#4B1238]"],
+.premium-blog-page [class*="to-[#d9468f]"],
+.premium-blog-page [class*="from-[#8d2f66]"] {
+  background-image: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+}
+
+.premium-blog-page [class*="text-[#4B1238]"],
+.premium-blog-page [class*="text-[#d9468f]"],
+.premium-blog-page [class*="text-[#b3336f]"],
+.premium-blog-page [class*="text-[#23111d]"],
+.premium-blog-page [class*="text-[#4e3a47]"] {
+  color: var(--blog-gold-light) !important;
+}
+
+.premium-blog-page [class*="bg-[#4B1238]"],
+.premium-blog-page [class*="bg-[#d9468f]"],
+.premium-blog-page [class*="bg-[#f7eff5]"] {
+  background: var(--blog-card) !important;
+}
+
+.premium-blog-page .blx-thumb-wrap::after,
+.premium-blog-page a.block.rounded-\[2rem\] > img + div::before {
+  background: linear-gradient(180deg, rgba(7, 17, 31, 0), rgba(7, 17, 31, .28)) !important;
+}
+
+.premium-blog-page .blx-thumb-wrap > span,
+.premium-blog-page span.bg-\[\#111827\],
+.premium-blog-page span.bg-\[\#0b1220\],
+.premium-blog-page span.bg-\[\#1e293b\],
+.premium-blog-page span.bg-\[\#07152f\],
+.premium-blog-page span.bg-\[\#f5aa02\],
+.premium-blog-page span.bg-\[\#f5aa02\],
+.premium-blog-page span.bg-\[\#f5aa02\] {
+  background: rgba(15, 27, 45, .88) !important;
+  color: var(--blog-gold-light) !important;
+  border: 1px solid var(--blog-border) !important;
+}
+
+.premium-blog-page .blog-meta-pill {
+  background: #fff !important;
+  color: #111827 !important;
+}
+
+.premium-blog-page .blx-card h3,
+.premium-blog-page .blx-card .text-secondary,
+.premium-blog-page article h2,
+.premium-blog-page article h3,
+.premium-blog-page details summary span {
+  color: var(--blog-heading) !important;
+}
+
+.premium-blog-page .blx-card p,
+.premium-blog-page article p,
+.premium-blog-page details p {
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page .blx-filterbar button.bg-primary,
+.premium-blog-page .blx-filterbar button[class*="bg-primary"] {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #07111F !important;
+  border-color: rgba(244, 214, 117, .42) !important;
+}
+
+.premium-blog-page .blx-filterbar button:not([class*="bg-primary"]) {
+  background: #101E33 !important;
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page .btn-primary:hover,
+.premium-blog-page .blx-filterbar button:hover {
+  box-shadow: 0 14px 32px rgba(212, 167, 44, .18) !important;
+}
+
+.premium-blog-page .fill-primary,
+.premium-blog-page svg.text-primary,
+.premium-blog-page svg.text-primary-light {
+  color: var(--blog-gold-light) !important;
+  fill: var(--blog-gold-light) !important;
+}
+
+.premium-blog-page hr,
+.premium-blog-page .divide-y > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--blog-divider) !important;
+}
+
+.premium-blog-page .shadow-lg,
+.premium-blog-page .shadow-xl,
+.premium-blog-page .shadow-2xl {
+  box-shadow: 0 20px 55px rgba(0, 0, 0, .28) !important;
+}
+
+/* Remove remaining pink/magenta author-card accents from old blog CSS. */
+.premium-blog-page .bg-gradient-to-br.from-primary.to-primary-light,
+.premium-blog-page .bg-gradient-to-br.from-primary,
+.premium-blog-page .w-16.h-16.rounded-2xl,
+.premium-blog-page [class*="from-primary"][class*="to-primary-light"] {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #0F1B2D !important;
+}
+
+.premium-blog-page .bg-white\/10.rounded-\[2rem\],
+.premium-blog-page .bg-white\/10.rounded-3xl,
+.premium-blog-page section.bg-secondary .bg-white\/10,
+.premium-blog-page section.text-white .bg-white\/10 {
+  background: rgba(23, 42, 68, .82) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page section.bg-secondary h2,
+.premium-blog-page section.bg-secondary h3,
+.premium-blog-page section.text-white h2,
+.premium-blog-page section.text-white h3 {
+  color: var(--blog-heading) !important;
+}
+
+.premium-blog-page section.bg-secondary p,
+.premium-blog-page section.text-white p {
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page .fill-primary,
+.premium-blog-page .bg-primary,
+.premium-blog-page [style*="#d9468f"],
+.premium-blog-page [style*="#4B1238"],
+.premium-blog-page [style*="#b3336f"] {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #0F1B2D !important;
+  fill: var(--blog-gold-light) !important;
+}
+
+/* Lighter blog palette pass: light surfaces use dark text, dark bands use light text. */
+.premium-blog-page {
+  --blog-bg: #F4F1E8;
+  --blog-bg-2: #E9E0C9;
+  --blog-card: #FFF8E7;
+  --blog-card-hover: #F7EBC8;
+  --blog-dark: #1C2D44;
+  --blog-dark-2: #2A4261;
+  --blog-heading: #172033;
+  --blog-body: #38455A;
+  --blog-muted: #667085;
+  --blog-light-heading: #FFF8E7;
+  --blog-light-body: #D7DEE8;
+  --blog-border: rgba(185, 139, 32, .30);
+  --blog-divider: rgba(23, 32, 51, .10);
+}
+
+.premium-blog-page,
+.premium-blog-page main,
+.premium-blog-page main.bg-white,
+.premium-blog-page main.bg-\[\#fbfaf7\],
+.premium-blog-page section.bg-white,
+.premium-blog-page section.bg-\[\#fbfaf7\],
+.premium-blog-page section.bg-primary\/5,
+.premium-blog-page section.bg-gradient-to-b {
+  background: linear-gradient(180deg, #F7F3E8 0%, #EFE6D2 100%) !important;
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page main > section:first-child,
+.premium-blog-page section.bg-secondary,
+.premium-blog-page section.text-white,
+.premium-blog-page section.bg-gradient-to-br.from-\[\#07111f\],
+.premium-blog-page section.bg-gradient-to-br.from-\[\#111827\] {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(212, 167, 44, .18), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgba(244, 214, 117, .12), transparent 28%),
+    linear-gradient(135deg, #1C2D44 0%, #263D5B 58%, #304B6E 100%) !important;
+  color: var(--blog-light-body) !important;
+}
+
+.premium-blog-page .blx-card,
+.premium-blog-page article.bg-white,
+.premium-blog-page div.bg-white,
+.premium-blog-page details,
+.premium-blog-page .bg-\[\#fbfaf7\],
+.premium-blog-page .bg-\[\#f8f7f4\],
+.premium-blog-page .bg-white {
+  background: var(--blog-card) !important;
+  color: var(--blog-body) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page .blx-card:hover,
+.premium-blog-page details:hover,
+.premium-blog-page a.rounded-3xl:hover {
+  background: var(--blog-card-hover) !important;
+}
+
+.premium-blog-page .blx-filterbar,
+.premium-blog-page section.sticky {
+  background: rgba(255, 248, 231, .92) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page h1,
+.premium-blog-page h2,
+.premium-blog-page h3,
+.premium-blog-page h4,
+.premium-blog-page .text-secondary,
+.premium-blog-page summary,
+.premium-blog-page .blx-card h3,
+.premium-blog-page article h2,
+.premium-blog-page article h3 {
+  color: var(--blog-heading) !important;
+}
+
+.premium-blog-page p,
+.premium-blog-page li,
+.premium-blog-page .text-gray-600,
+.premium-blog-page .text-gray-700,
+.premium-blog-page .blx-card p,
+.premium-blog-page article p,
+.premium-blog-page details p {
+  color: var(--blog-body) !important;
+}
+
+.premium-blog-page section.text-white h1,
+.premium-blog-page section.text-white h2,
+.premium-blog-page section.text-white h3,
+.premium-blog-page section.bg-secondary h1,
+.premium-blog-page section.bg-secondary h2,
+.premium-blog-page section.bg-secondary h3,
+.premium-blog-page main > section:first-child h1,
+.premium-blog-page main > section:first-child h2,
+.premium-blog-page main > section:first-child h3 {
+  color: var(--blog-light-heading) !important;
+}
+
+.premium-blog-page section.text-white p,
+.premium-blog-page section.text-white .text-gray-300,
+.premium-blog-page section.bg-secondary p,
+.premium-blog-page section.bg-secondary .text-gray-300,
+.premium-blog-page main > section:first-child p,
+.premium-blog-page main > section:first-child .text-gray-300 {
+  color: var(--blog-light-body) !important;
+}
+
+.premium-blog-page input,
+.premium-blog-page textarea,
+.premium-blog-page select {
+  background: #FFF8E7 !important;
+  color: var(--blog-heading) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page button:not(.bg-primary) {
+  background: #FFF8E7 !important;
+  color: var(--blog-heading) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.premium-blog-page button:not(.bg-primary):hover {
+  background: #F7EBC8 !important;
+  color: #172033 !important;
+}
+
+.premium-blog-page .bg-white\/10.rounded-\[2rem\],
+.premium-blog-page .bg-white\/10.rounded-3xl,
+.premium-blog-page section.text-white .bg-white\/10,
+.premium-blog-page section.bg-secondary .bg-white\/10 {
+  background: rgba(255, 248, 231, .10) !important;
+  color: var(--blog-light-body) !important;
+}
+
+.premium-blog-page .w-16.h-16.rounded-2xl,
+.premium-blog-page [class*="from-primary"][class*="to-primary-light"] {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #172033 !important;
+}
+
+/* Blog CTA section: match light blog palette, no pink/purple. */
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(212, 167, 44, .18), transparent 32%),
+    radial-gradient(circle at 82% 15%, rgba(42, 66, 97, .12), transparent 30%),
+    linear-gradient(135deg, #F7F3E8 0%, #EFE6D2 55%, #E6D9BC 100%) !important;
+  border-top: 1px solid var(--blog-border) !important;
+  border-bottom: 1px solid var(--blog-border) !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light .cta-readable-heading,
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light h2 {
+  color: #172033 !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light p {
+  color: #38455A !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light a.bg-white {
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-gold-light)) !important;
+  color: #172033 !important;
+  box-shadow: 0 18px 42px rgba(185, 139, 32, .26) !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light .cta-proof-chip {
+  background: rgba(255, 248, 231, .86) !important;
+  border-color: rgba(185, 139, 32, .28) !important;
+  box-shadow: 0 14px 34px rgba(23, 32, 51, .08) !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light .cta-proof-chip span {
+  color: #172033 !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light .cta-proof-chip p {
+  color: #667085 !important;
+}
+
+.premium-blog-page section.py-10.bg-gradient-to-br.from-primary.via-primary.to-primary-light .cta-proof-chip svg {
+  color: var(--blog-gold) !important;
+  fill: var(--blog-gold) !important;
+}
+
+/* Blog footer contrast fix. */
+.premium-blog-page footer.footer-compact,
+.premium-blog-page footer.bg-secondary {
+  background: linear-gradient(135deg, #1C2D44 0%, #263D5B 58%, #304B6E 100%) !important;
+  border-top: 1px solid rgba(212, 167, 44, .24) !important;
+}
+
+.premium-blog-page footer.footer-compact h3,
+.premium-blog-page footer.footer-compact h4,
+.premium-blog-page footer.bg-secondary h3,
+.premium-blog-page footer.bg-secondary h4 {
+  color: #FFF8E7 !important;
+}
+
+.premium-blog-page footer.footer-compact p,
+.premium-blog-page footer.footer-compact li,
+.premium-blog-page footer.footer-compact span,
+.premium-blog-page footer.footer-compact a,
+.premium-blog-page footer.bg-secondary p,
+.premium-blog-page footer.bg-secondary li,
+.premium-blog-page footer.bg-secondary span,
+.premium-blog-page footer.bg-secondary a {
+  color: #D7DEE8 !important;
+}
+
+.premium-blog-page footer.footer-compact a:hover,
+.premium-blog-page footer.bg-secondary a:hover,
+.premium-blog-page footer.footer-compact .text-primary,
+.premium-blog-page footer.bg-secondary .text-primary {
+  color: #f5aa02 !important;
+}
+
+.premium-blog-page footer.footer-compact .border-white\/10,
+.premium-blog-page footer.bg-secondary .border-white\/10 {
+  border-color: rgba(255, 255, 255, .14) !important;
+}
+
+.premium-blog-page footer.footer-compact svg,
+.premium-blog-page footer.bg-secondary svg {
+  color: #f5aa02 !important;
+}
+
+footer.footer-compact img[src*="aurashine-logo"],
+footer.bg-secondary img[src*="aurashine-logo"] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background: rgba(255, 248, 231, .92) !important;
+  border: 1px solid rgba(244, 214, 117, .38) !important;
+  border-radius: 14px !important;
+  padding: 7px 12px !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .18), 0 0 24px rgba(244, 214, 117, .12) !important;
+  max-width: 220px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Author avatar boxes: remove remaining pink/magenta. */
+.premium-blog-page section.bg-secondary .w-16.h-16.rounded-2xl,
+.premium-blog-page section.text-white .w-16.h-16.rounded-2xl,
+.premium-blog-page .bg-gradient-to-br.from-primary.to-primary-light.flex.items-center.justify-center,
+.premium-blog-page .bg-gradient-to-br.from-primary.to-primary-light {
+  background: linear-gradient(135deg, #f5aa02, #f5aa02) !important;
+  color: #172033 !important;
+  border: 1px solid rgba(244, 214, 117, .45) !important;
+}
+
+.premium-blog-page section.bg-secondary .w-16.h-16.rounded-2xl *,
+.premium-blog-page section.text-white .w-16.h-16.rounded-2xl * {
+  color: #172033 !important;
+}
+
+/* Featured article hover glow: gold/navy instead of pink. */
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] {
+  box-shadow: 0 24px 70px rgba(23, 32, 51, .22), 0 0 0 1px rgba(185, 139, 32, .24) !important;
+}
+
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\]:hover {
+  box-shadow: 0 34px 90px rgba(23, 32, 51, .28), 0 0 42px rgba(212, 167, 44, .28), 0 0 0 1px rgba(212, 167, 44, .42) !important;
+  border-color: rgba(212, 167, 44, .48) !important;
+}
+
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\]::before,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\]::after {
+  background: radial-gradient(circle, rgba(212, 167, 44, .20), transparent 62%) !important;
+}
+
+.premium-blog-page .app-fixed-header .btn-primary:hover,
+.premium-blog-page .app-fixed-header a[href="#/contact?focus=message"]:hover {
+  color: #ffffff !important;
+}
+
+/* Compact breathing space for visual detail page section anchors/content. */
+.visual-detail-page .included-scroll-section,
+.visual-detail-page .development-keypoints-section,
+.visual-detail-page .page-specific-detail-section,
+.visual-detail-page .service-faq-section {
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
+}
+
+.visual-detail-page .included-scroll-wrap,
+.visual-detail-page .dev-inclusions-wrap {
+  gap: 1.25rem !important;
+  align-items: start !important;
+}
+
+.visual-detail-page .included-scroll-heading,
+.visual-detail-page .dev-inclusions-heading,
+.visual-detail-page .development-keypoints-section .text-center,
+.visual-detail-page .page-specific-detail-section .text-center,
+.visual-detail-page .service-faq-section .text-center {
+  margin-bottom: 1.25rem !important;
+}
+
+.visual-detail-page .included-scroll-heading h2,
+.visual-detail-page .dev-inclusions-heading h2,
+.visual-detail-page .development-keypoints-section h2,
+.visual-detail-page .page-specific-detail-section h2,
+.visual-detail-page .service-faq-section h2 {
+  margin-top: .45rem !important;
+  margin-bottom: .55rem !important;
+}
+
+.visual-detail-page .included-scroll-heading p,
+.visual-detail-page .dev-inclusions-heading p,
+.visual-detail-page .development-keypoints-section p,
+.visual-detail-page .page-specific-detail-section p {
+  margin-top: .35rem !important;
+}
+
+.visual-detail-page .dev-inclusion-chips {
+  margin-top: .9rem !important;
+}
+
+.visual-detail-page .dev-inclusions-grid,
+.visual-detail-page .included-card-stack,
+.visual-detail-page .development-keypoints-section .grid,
+.visual-detail-page .page-specific-detail-section .grid,
+.visual-detail-page .service-faq-section .space-y-2 {
+  margin-top: 0 !important;
+}
+
+.visual-detail-page .included-sticky-card p,
+.visual-detail-page .dev-inclusion-card p,
+.visual-detail-page .development-keypoints-section p,
+.visual-detail-page .page-specific-detail-section p,
+.visual-detail-page .service-faq-section p,
+.visual-detail-page .service-faq-section div,
+.visual-detail-page .glass-card p {
+  color: #ffffff !important;
+}
+
+.visual-detail-page .page-specific-detail-section h2,
+.visual-detail-page .included-scroll-heading h2,
+.visual-detail-page .dev-inclusions-heading h2,
+.visual-detail-page .development-keypoints-section h2,
+.visual-detail-page .service-faq-section h2 {
+  color: #ffffff !important;
+}
+
+@media (min-width: 1024px) {
+  .visual-detail-page .included-scroll-section,
+  .visual-detail-page .development-keypoints-section,
+  .visual-detail-page .page-specific-detail-section,
+  .visual-detail-page .service-faq-section {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+}
+
+/* Keep header mega dropdowns consistent with the rest of the site on blog pages. */
+.premium-blog-page .mega-menu-panel {
+  background: #101827 !important;
+  border: 1px solid rgba(212, 167, 44, .32) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .34) !important;
+  color: #ffffff !important;
+}
+
+.premium-blog-page .mega-menu-panel > a:first-child {
+  background: linear-gradient(100deg, #24355f 0%, #4b2d72 50%, #f5aa02 100%) !important;
+  color: #ffffff !important;
+}
+
+.premium-blog-page .mega-menu-panel > a:first-child *,
+.premium-blog-page .mega-menu-panel .mega-menu-sticker,
+.premium-blog-page .mega-menu-panel .mega-menu-orb {
+  color: #ffffff !important;
+}
+
+.premium-blog-page .mega-menu-columns {
+  background: #151C2B !important;
+}
+
+.premium-blog-page .mega-menu-heading {
+  color: #f5aa02 !important;
+}
+
+.premium-blog-page .mega-menu-link {
+  background: rgba(255, 255, 255, .035) !important;
+  border: 1px solid rgba(255, 255, 255, .08) !important;
+  color: #ffffff !important;
+}
+
+.premium-blog-page .mega-menu-link:hover {
+  background: rgba(255, 255, 255, .075) !important;
+  border-color: rgba(212, 167, 44, .35) !important;
+}
+
+.premium-blog-page .mega-menu-icon {
+  background: rgba(212, 167, 44, .12) !important;
+}
+
+.premium-blog-page .mega-menu-icon svg {
+  color: #f5aa02 !important;
+}
+
+.premium-blog-page .mega-menu-title {
+  color: #FFF8E7 !important;
+}
+
+.premium-blog-page .mega-menu-desc {
+  color: rgba(255, 255, 255, .68) !important;
+}
+
+.premium-blog-page .mega-menu-footer {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, .10) !important;
+}
+
+.premium-blog-page .mega-menu-footer p {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+.premium-blog-page .mega-menu-footer a {
+  color: #f5aa02 !important;
+}
+
+/* Blog header simple links: black, not gold. */
+.premium-blog-page .app-fixed-header a[href="#/about"],
+.premium-blog-page .app-fixed-header a[href="#/crm"],
+.premium-blog-page .app-fixed-header a[href="#/contact"],
+.premium-blog-page .app-fixed-header a[href="#/blog"] {
+  color: #172033 !important;
+}
+
+.premium-blog-page .app-fixed-header a[href="#/about"]:hover,
+.premium-blog-page .app-fixed-header a[href="#/crm"]:hover,
+.premium-blog-page .app-fixed-header a[href="#/contact"]:hover,
+.premium-blog-page .app-fixed-header a[href="#/blog"]:hover {
+  color: #000000 !important;
+}
+
+html[data-header-theme='dark']:not(.hdrx-scrolled) .premium-blog-page .app-fixed-header a[href="#/about"],
+html[data-header-theme='dark']:not(.hdrx-scrolled) .premium-blog-page .app-fixed-header a[href="#/crm"],
+html[data-header-theme='dark']:not(.hdrx-scrolled) .premium-blog-page .app-fixed-header a[href="#/contact"],
+html[data-header-theme='dark']:not(.hdrx-scrolled) .premium-blog-page .app-fixed-header a[href="#/blog"] {
+  color: #ffffff !important;
+}
+
+html.hdrx-scrolled .premium-blog-page .app-fixed-header a[href="#/about"],
+html.hdrx-scrolled .premium-blog-page .app-fixed-header a[href="#/crm"],
+html.hdrx-scrolled .premium-blog-page .app-fixed-header a[href="#/contact"],
+html.hdrx-scrolled .premium-blog-page .app-fixed-header a[href="#/blog"],
+html[data-header-theme='light'] .premium-blog-page .app-fixed-header a[href="#/about"],
+html[data-header-theme='light'] .premium-blog-page .app-fixed-header a[href="#/crm"],
+html[data-header-theme='light'] .premium-blog-page .app-fixed-header a[href="#/contact"],
+html[data-header-theme='light'] .premium-blog-page .app-fixed-header a[href="#/blog"] {
+  color: #172033 !important;
+}
+
+/* Featured article card has a light body, so force readable dark text there. */
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div.p-7,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div:last-child {
+  background: #FFF8E7 !important;
+  color: #172033 !important;
+}
+
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div.p-7 h2,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div:last-child h2 {
+  color: #172033 !important;
+}
+
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div.p-7 p,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div:last-child p {
+  color: #38455A !important;
+}
+
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div.p-7 span,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div.p-7 div,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div:last-child span,
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] > div:last-child div {
+  color: #f5aa02 !important;
+}
+
+.premium-blog-page .blog-meta-pill,
+.premium-blog-page .blog-category-pill {
+  background: #fff !important;
+  color: #111827 !important;
+  border-color: rgba(255, 255, 255, .9) !important;
+}

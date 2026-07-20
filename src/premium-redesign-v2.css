@@ -1,0 +1,435 @@
+/* ══════════════════════════════════════════════════════════════════════
+   PREMIUM REDESIGN v2 — 2026-07-04
+   Scope: Development KPI stat cards, Development service cards,
+   Blog page (full cyan/violet dark-glass restyle, supersedes the earlier
+   navy/gold "round 3" blog palette in final-fixes.css).
+   Additive only — loaded last so it wins on equal specificity.
+   Existing JSX structure and functionality are unchanged; this file only
+   restyles and fixes the responsive bugs called out in the brief.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────────
+   1) DEVELOPMENT — KPI / stat cards (hero "system-readout" row)
+   Scoped to .devx-kpi-grid / .devx-kpi-card, used on every Development
+   detail page (Web Development, App Development, CRM, etc.)
+   ──────────────────────────────────────────────────────────────────── */
+.devx-kpi-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+.devx-kpi-card {
+  box-sizing: border-box;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 88px;
+  border: 1px solid rgba(0, 229, 255, 0.18) !important;
+  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.devx-kpi-card p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.devx-kpi-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 255, 0.5) !important;
+  box-shadow: 0 14px 34px rgba(0, 229, 255, 0.2);
+}
+@media (max-width: 768px) {
+  .devx-kpi-grid {
+    max-width: 100% !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 380px) {
+  .devx-kpi-grid { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .devx-kpi-card { transition: none !important; }
+}
+
+/* Mobile overflow fix (2026-07-04): grid/flex items default to min-width:auto,
+   so an unbreakable token (e.g. the "~/development/web-development" breadcrumb)
+   forced the whole hero column to 403px on a 375px screen, clipping the
+   heading, paragraph and KPI cards. Let items shrink + wrap long tokens. */
+.devx-shell .grid > * { min-width: 0; }
+.devx-shell .devx-mono {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.devx-shell h1,
+.devx-shell h2,
+.devx-shell p { overflow-wrap: break-word; }
+
+/* ────────────────────────────────────────────────────────────────────
+   2) DEVELOPMENT — service cards (main /development services grid)
+   Scoped to .devx-service-card (the card link inside each TiltCard)
+   ──────────────────────────────────────────────────────────────────── */
+.devx-service-card {
+  border-radius: 24px !important;
+  background: rgba(17, 24, 39, 0.72) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(0, 255, 255, 0.18) !important;
+  padding: 24px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.devx-service-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(0, 229, 255, 0.5) !important;
+  box-shadow: 0 20px 48px rgba(0, 229, 255, 0.16), 0 0 0 1px rgba(0, 229, 255, 0.1) !important;
+}
+/* content stays anchored top, CTA row anchored bottom */
+.devx-service-card > div.relative.z-10.flex.flex-col.h-full {
+  justify-content: space-between;
+}
+/* description clamps to a consistent 5 lines so cards don't grow unevenly */
+.devx-service-card p.flex-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* tech tags: wrap naturally, sit just above the CTA row */
+.devx-service-card .flex-wrap.gap-2 {
+  row-gap: 8px;
+}
+@media (max-width: 1024px) {
+  .devx-service-card { padding: 20px !important; }
+}
+@media (max-width: 640px) {
+  .devx-service-card { padding: 18px !important; }
+}
+/* Mobile/tablet: auto-rows-fr makes every 1-column row as tall as the huge
+   featured card, leaving giant empty gaps inside each service card (content
+   pinned top + CTA pinned bottom by space-between). Below lg, rows size to
+   their own content; desktop keeps the equal-height grid. */
+@media (max-width: 1023px) {
+  .aurashine-dev-page .auto-rows-fr { grid-auto-rows: auto !important; }
+  .devx-service-card > div.relative.z-10.flex.flex-col.h-full {
+    justify-content: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .devx-service-card { transition: none !important; }
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   3) BLOG PAGE — premium light plum/ivory palette (2026-07-04 round 4).
+   Replaces the cyan/violet dark skin: its white text-token overrides
+   (.text-gray-700 → white) made article text invisible on the white
+   sections of the blog DETAIL page. Light sections now keep their normal
+   dark grays; plum #4B1238 + pink #d9468f are the only accents.
+   Scoped to .premium-blog-page (blog list + blog detail wrappers).
+   ──────────────────────────────────────────────────────────────────── */
+.premium-blog-page,
+.premium-blog-page main {
+  background: #fbf7fb !important;
+}
+
+/* Hero — LIGHT blush hero (2026-07-04 "thoda light hi rakho"): soft
+   ivory/rose gradient, dark plum text; blog header now uses dark nav text. */
+.premium-blog-page main > section:first-child {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(217, 70, 143, 0.1), transparent 42%),
+    radial-gradient(circle at 85% 78%, rgba(122, 43, 92, 0.07), transparent 46%),
+    linear-gradient(160deg, #fdf6fa 0%, #f7e9f2 55%, #fbf7fb 100%) !important;
+  color: #23111d !important;
+}
+/* the old dark heroes/author band carried .text-white — flip all of them light */
+.premium-blog-page section.text-white,
+.premium-blog-page main > section:first-child {
+  color: #23111d !important;
+}
+.premium-blog-page section.text-white .dark-gradient-mesh { opacity: 0 !important; }
+.premium-blog-page main > section:first-child .bg-white\/10 {
+  background: #ffffff !important;
+  border-color: rgba(75, 18, 56, 0.14) !important;
+  box-shadow: 0 10px 26px rgba(75, 18, 56, 0.08);
+}
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\] {
+  background: #ffffff !important;
+  border-color: rgba(75, 18, 56, 0.1) !important;
+  box-shadow: 0 18px 45px rgba(75, 18, 56, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.premium-blog-page main > section:first-child a.block.rounded-\[2rem\]:hover {
+  box-shadow: 0 26px 70px rgba(217, 70, 143, 0.22) !important;
+}
+
+/* Text tokens: light sections keep readable dark grays (this is what fixes
+   the invisible article text on the blog detail page — do NOT force white). */
+.premium-blog-page .text-secondary { color: #23111d !important; }
+.premium-blog-page .text-gray-600,
+.premium-blog-page .text-gray-700 { color: #4e3a47 !important; }
+.premium-blog-page .text-gray-500 { color: #6f5c68 !important; }
+.premium-blog-page .text-gray-400 { color: #93818c !important; }
+/* hero/author band greys — muted plum-grey on the light background */
+.premium-blog-page section.text-white .text-gray-300,
+.premium-blog-page main > section:first-child .text-gray-300 { color: #6f5c68 !important; }
+.premium-blog-page .border-gray-100,
+.premium-blog-page .border-gray-200 { border-color: rgba(75, 18, 56, 0.1) !important; }
+
+/* Accent tokens: plum on light, soft pink on dark */
+.premium-blog-page .text-primary { color: #4B1238 !important; }
+.premium-blog-page .text-primary-light { color: #b3336f !important; }
+.premium-blog-page .bg-primary {
+  background: #4B1238 !important;
+  color: #ffffff !important;
+}
+.premium-blog-page .bg-primary\/10 { background-color: rgba(75, 18, 56, 0.08) !important; }
+.premium-blog-page .bg-primary\/5 { background-color: #f7eff5 !important; }
+.premium-blog-page .border-primary\/20 { border-color: rgba(75, 18, 56, 0.14) !important; }
+.premium-blog-page .hover\:bg-primary\/10:hover { background-color: rgba(75, 18, 56, 0.08) !important; }
+.premium-blog-page .homx-shimmer-text {
+  background-image: linear-gradient(100deg, #8d2f66 20%, #d9468f 40%, #8d2f66 60%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.premium-blog-page .gradient-text {
+  background-image: linear-gradient(135deg, #4B1238, #d9468f) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.premium-blog-page .homx-float {
+  background: #ffffff !important;
+  border-color: rgba(217, 70, 143, 0.35) !important;
+  box-shadow: 0 10px 24px rgba(75, 18, 56, 0.1) !important;
+}
+.premium-blog-page .homx-pulse-dot::after { border-color: rgba(217, 70, 143, 0.5) !important; }
+.premium-blog-page .fill-primary { fill: #d9468f !important; }
+
+/* Section washes: soft ivory → blush, no yellow tint */
+.premium-blog-page section.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, #ffffff, #f6ecf3) !important;
+}
+.premium-blog-page .bg-gradient-to-br.from-primary\/5 {
+  background-image: linear-gradient(135deg, #faf3f8, #ffffff) !important;
+}
+
+/* Sticky filter / search bar: white glass, plum accents */
+.premium-blog-page .blx-filterbar {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(75, 18, 56, 0.08) !important;
+  backdrop-filter: blur(16px) !important;
+}
+.premium-blog-page .blx-filterbar input {
+  background: #ffffff !important;
+  border-color: rgba(75, 18, 56, 0.12) !important;
+  color: #23111d !important;
+}
+.premium-blog-page .blx-filterbar input::placeholder { color: #93818c !important; }
+.premium-blog-page .blx-filterbar input:focus,
+.premium-blog-page input.focus\:border-primary:focus,
+.premium-blog-page .focus\:border-primary:focus {
+  border-color: #4B1238 !important;
+  box-shadow: 0 0 0 4px rgba(75, 18, 56, 0.12) !important;
+}
+.premium-blog-page .blx-filterbar button.bg-primary {
+  background: linear-gradient(135deg, #4B1238, #d9468f) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 28px rgba(75, 18, 56, 0.28) !important;
+}
+.premium-blog-page .blx-filterbar button:not(.bg-primary) {
+  background: #ffffff !important;
+  color: #6f5c68 !important;
+  border: 1px solid rgba(75, 18, 56, 0.1) !important;
+}
+.premium-blog-page .blx-filterbar button:not(.bg-primary):hover {
+  background: rgba(75, 18, 56, 0.06) !important;
+  color: #23111d !important;
+  border-color: rgba(75, 18, 56, 0.22) !important;
+}
+
+/* Blog cards: white default, per-card themes override via inline styles */
+.premium-blog-page .blx-card {
+  border-radius: 24px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.premium-blog-page .blx-card:hover {
+  transform: translateY(-8px) !important;
+}
+.premium-blog-page .blx-thumb-wrap {
+  border-radius: 24px 24px 0 0;
+  position: relative;
+}
+.premium-blog-page .blx-thumb-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 62%, rgba(35, 17, 29, 0.28) 100%);
+  pointer-events: none;
+}
+.premium-blog-page .blx-thumb { transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+.premium-blog-page .blx-card:hover .blx-thumb { transform: scale(1.08); }
+.premium-blog-page .blx-thumb-wrap > span:not([class*="bg-["]):not([class*="text-["]) {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #23111d !important;
+  border: 1px solid rgba(17, 24, 39, 0.14) !important;
+  box-shadow: 0 6px 18px rgba(35, 17, 29, 0.18) !important;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.premium-blog-page .blx-card:hover .blx-thumb-wrap > span { transform: scale(1.06); }
+.premium-blog-page article h3 { color: #23111d !important; }
+
+/* Author cards band: light blush to match the light hero */
+.premium-blog-page section.bg-secondary {
+  background: linear-gradient(160deg, #f9eff6, #fbf7fb) !important;
+  color: #23111d !important;
+}
+.premium-blog-page section.bg-secondary .bg-white\/10 {
+  background: #ffffff !important;
+  border-color: rgba(75, 18, 56, 0.1) !important;
+  box-shadow: 0 14px 36px rgba(75, 18, 56, 0.08);
+}
+.premium-blog-page section.bg-secondary .bg-gradient-to-br.from-primary,
+.premium-blog-page .bg-gradient-to-br.from-primary.to-primary-light {
+  background-image: linear-gradient(135deg, #4B1238, #d9468f) !important;
+}
+
+/* Blog CTA buttons (detail "Discuss Project" etc.) follow the plum palette */
+.premium-blog-page .btn-primary {
+  background: linear-gradient(135deg, #4B1238, #d9468f) !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 45px rgba(75, 18, 56, 0.25) !important;
+}
+.premium-blog-page .btn-primary:hover {
+  box-shadow: 0 18px 45px rgba(217, 70, 143, 0.35) !important;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   3b) BLOG "Ready to grow?" CTA — was a near-black navy/bronze block
+   (user: too dark). Now a light blush band with plum text and a
+   plum→pink CTA button. Scoped to the blog page only; the CTA keeps
+   its gold look everywhere else on the site.
+   `via-primary` makes this selector match ONLY the CTA section (the
+   author avatar tiles use from-primary → to-primary-light without via).
+   ──────────────────────────────────────────────────────────────────── */
+.premium-blog-page section.bg-gradient-to-br.from-primary.via-primary {
+  background: linear-gradient(135deg, #fdf0f7 0%, #f7e0ee 55%, #fbf7fb 100%) !important;
+}
+.premium-blog-page section.bg-gradient-to-br.from-primary.via-primary .cta-readable-heading {
+  color: #3d1030 !important;
+  text-shadow: none !important;
+}
+.premium-blog-page section.bg-gradient-to-br.from-primary.via-primary p {
+  color: #6f5c68 !important;
+}
+.premium-blog-page section.bg-gradient-to-br.from-primary.via-primary a.bg-white {
+  background: linear-gradient(135deg, #4B1238, #d9468f) !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 45px rgba(75, 18, 56, 0.28) !important;
+}
+.premium-blog-page section.bg-gradient-to-br.from-primary.via-primary a:not(.bg-white) {
+  color: #4B1238 !important;
+  border-color: rgba(75, 18, 56, 0.3) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-blog-page .blx-card,
+  .premium-blog-page .blx-thumb,
+  .premium-blog-page .blx-thumb-wrap > span,
+  .premium-blog-page main > section:first-child a.block.rounded-\[2rem\] {
+    transition: none !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   4) ABOUT + CONTACT hero — mobile spacing (2026-07-04)
+   On phones the "ABOUT/CONTACT AURASHINE INFOTECH" badge sat too close
+   to the transparent header (pt-32 ≈ 128px incl. 64px header). Push the
+   hero content slightly down on mobile/tablet only; desktop unchanged.
+   ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .premium-about-page main > section:first-of-type,
+  .premium-contact-page > section:first-of-type {
+    padding-top: 10.5rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .premium-about-page main > section:first-of-type,
+  .premium-contact-page > section:first-of-type {
+    padding-top: 10rem !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   5) ABX2 — About page premium layout polish (2026-07-06)
+   Scoped to .premium-about-page only. Same palette (gold #f5aa02 /
+   navy #111827); adds depth, hover motion and card refinement for
+   Mission/Vision/Values, Why Choose Us and the About CTA.
+   (Hero kept as the original centered layout per user request.)
+   ──────────────────────────────────────────────────────────────────── */
+.premium-about-page h1,
+.premium-about-page h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Mission / Vision / Values premium cards */
+.premium-about-page .abx2-card {
+  border: 1px solid rgba(17, 24, 39, 0.07);
+  box-shadow: 0 18px 45px -22px rgba(17, 24, 39, 0.22);
+  transition: transform 0.35s cubic-bezier(0.22, 0.68, 0.35, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.premium-about-page .abx2-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245,170,2, 0.4);
+  box-shadow: 0 32px 70px -28px rgba(17, 24, 39, 0.32);
+}
+.premium-about-page .abx2-accent {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 3px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(90deg, #f5aa02, #f5aa02);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.premium-about-page .abx2-card:hover .abx2-accent {
+  transform: scaleX(1);
+}
+.premium-about-page .abx2-icon {
+  transition: transform 0.35s ease;
+}
+.premium-about-page .abx2-card:hover .abx2-icon {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+/* Why Choose Us glass cards (dark section) */
+.premium-about-page .abx2-glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.premium-about-page .abx2-glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245,170,2, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* About CTA panel glow */
+.premium-about-page .abx2-cta {
+  box-shadow: 0 40px 90px -35px rgba(17, 24, 39, 0.5), 0 0 0 1px rgba(245,170,2, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-about-page .abx2-card,
+  .premium-about-page .abx2-glass-card,
+  .premium-about-page .abx2-accent,
+  .premium-about-page .abx2-icon {
+    transition: none !important;
+    transform: none !important;
+  }
+}

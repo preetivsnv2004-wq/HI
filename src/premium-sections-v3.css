@@ -1,0 +1,264 @@
+/* ==========================================================================
+   PREMIUM REDESIGN V3
+   Scoped, additive styles for two sections only:
+     1. "From Strategy to Results" (.psv3-strategy-section)
+     2. "AuraShine Website Features" (.psv3-features-section)
+   Nothing here touches existing selectors, content, or functionality —
+   it only adds new visual classes used by the redesigned markup.
+   ========================================================================== */
+
+/* ---------- shared premium primitives ---------- */
+
+.psv3-glass-chip {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.psv3-heading-gradient {
+  color: #fff;
+}
+
+@keyframes psv3-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .35; }
+  50%  { transform: translate3d(6px, -14px, 0) scale(1.15); opacity: .8; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: .35; }
+}
+
+.psv3-particle {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(245,170,2,.9) 0%, rgba(245,170,2,.25) 60%, transparent 100%);
+  animation: psv3-drift 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes psv3-mesh-move {
+  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  50%  { background-position: 20% 30%, 80% 20%, 40% 80%; }
+  100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+}
+
+@keyframes psv3-border-flow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.psv3-gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.psv3-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(120deg, rgba(245,170,2,.75), rgba(255,255,255,.06) 45%, rgba(245,170,2,.55) 75%, rgba(245,170,2,.15));
+  background-size: 220% 220%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: psv3-border-flow 7s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.psv3-dotpattern {
+  background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psv3-particle,
+  .psv3-gradient-border::before,
+  .psv3-mesh-bg { animation: none !important; }
+}
+
+/* ==========================================================================
+   SECTION 1 — From Strategy to Results
+   ========================================================================== */
+
+.psv3-strategy-section {
+  background: #0b1220;
+}
+
+.psv3-strategy-gradient {
+  /* subtle dark-to-light gradient, but it stays dark all the way through —
+     the next section (AuraShine Website Features) is also dark, so this
+     ends on the same tone (#0b0f19) for a seamless join instead of a
+     mismatched light band between two dark sections */
+  background: linear-gradient(180deg, #0b0f19 0%, #111827 45%, #161d2f 75%, #0b0f19 100%);
+}
+
+.psv3-radial-glow {
+  background: radial-gradient(700px circle at 50% 30%, rgba(245,170,2,.14), transparent 65%);
+}
+
+.psv3-spine-track {
+  background: rgba(255,255,255,.08);
+}
+
+.psv3-spine-fill {
+  background: linear-gradient(180deg, #f5aa02, #f5aa02 45%, #f5aa02 80%, rgba(185,130,0,.25));
+  box-shadow: 0 0 18px rgba(245,170,2,.55);
+}
+
+.psv3-timeline-dot {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 35% 30%, #f5aa02, #f5aa02 55%, #f5aa02 100%);
+  box-shadow: 0 0 0 5px rgba(245,170,2,.16), 0 0 22px 4px rgba(245,170,2,.55);
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease;
+}
+
+.psv3-phase-card:hover .psv3-timeline-dot,
+.psv3-phase-card:focus-within ~ .psv3-timeline-dot {
+  transform: scale(1.25);
+}
+
+.psv3-phase-card {
+  background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 24px 60px -28px rgba(0,0,0,.65);
+  transition: box-shadow .45s cubic-bezier(.16,1,.3,1), border-color .45s ease;
+}
+
+.psv3-phase-card:hover {
+  border-color: rgba(245,170,2,.4);
+  box-shadow: 0 30px 70px -24px rgba(185,130,0,.4), 0 0 0 1px rgba(245,170,2,.15) inset;
+}
+
+.psv3-phase-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(245,170,2,.5), rgba(255,255,255,.04) 50%, rgba(245,170,2,.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.psv3-phase-number {
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(245,170,2,.22);
+}
+
+.psv3-icon-shell {
+  position: relative;
+}
+.psv3-icon-shell::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: conic-gradient(from 180deg, rgba(245,170,2,.5), transparent 40%, rgba(245,170,2,.5));
+  opacity: .55;
+  filter: blur(7px);
+  z-index: -1;
+}
+
+/* ==========================================================================
+   SECTION 2 — AuraShine Website Features (Bento grid)
+   ========================================================================== */
+
+.psv3-features-section {
+  background: #0b0f19;
+  isolation: isolate;
+}
+
+.psv3-mesh-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(38% 45% at 15% 20%, rgba(245,170,2,.16), transparent 70%),
+    radial-gradient(30% 40% at 85% 15%, rgba(245,170,2,.12), transparent 70%),
+    radial-gradient(45% 55% at 50% 100%, rgba(185,130,0,.14), transparent 70%);
+  background-size: 160% 160%, 160% 160%, 160% 160%;
+  animation: psv3-mesh-move 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.psv3-bento-card {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 20px 50px -26px rgba(0,0,0,.6);
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, border-color .4s ease;
+  overflow: hidden;
+}
+
+.psv3-bento-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245,170,2,.4);
+  box-shadow: 0 30px 65px -22px rgba(185,130,0,.4);
+}
+
+.psv3-bento-feature.psv3-bento-card {
+  background: linear-gradient(165deg, #ffffff, #fbfbf9);
+  border-color: rgba(255,255,255,.6);
+  color: #111827;
+}
+
+.psv3-badge-chip {
+  transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .3s ease, background-color .3s ease;
+}
+.psv3-badge-chip:hover {
+  transform: translateY(-3px);
+}
+
+@keyframes psv3-badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.psv3-badge-float {
+  animation: psv3-badge-float 5s ease-in-out infinite;
+}
+
+.psv3-pillar-icon {
+  position: relative;
+}
+.psv3-pillar-icon::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: conic-gradient(from 180deg, rgba(245,170,2,.55), transparent 45%, rgba(245,170,2,.55));
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity .4s ease;
+  z-index: -1;
+}
+.psv3-bento-card:hover .psv3-pillar-icon::after {
+  opacity: .6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psv3-bento-card,
+  .psv3-badge-chip,
+  .psv3-badge-float { animation: none !important; transition: none !important; }
+}
+
+/* Mobile performance guard: matches the site's existing convention of
+   dropping heavy backdrop blur on small screens. */
+@media (max-width: 768px) {
+  .psv3-phase-card,
+  .psv3-bento-card {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .psv3-mesh-bg,
+  .psv3-particle {
+    display: none !important;
+  }
+}

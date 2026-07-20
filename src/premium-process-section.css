@@ -1,0 +1,363 @@
+/* ==========================================================================
+   PREMIUM PROCESS 3D CAROUSEL (psp- prefix)
+   Full-width cinematic 3D process carousel with side content.
+   ========================================================================== */
+
+@keyframes psp-glow-pulse {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+@keyframes psp-beam-sweep {
+  0% { transform: translateX(-60%) rotate(-8deg); }
+  100% { transform: translateX(160%) rotate(-8deg); }
+}
+
+@keyframes psp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.psp-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* --- cinematic background --- */
+.psp-cinematic-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60rem 40rem at 50% 40%, rgba(245,170,2,.08), transparent 60%),
+    radial-gradient(40rem 30rem at 20% 70%, rgba(59,130,246,.05), transparent 55%),
+    radial-gradient(50rem 35rem at 80% 30%, rgba(245,170,2,.04), transparent 50%);
+  pointer-events: none;
+}
+
+.psp-beam {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 35%;
+  height: 140%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245,170,2,.04) 40%,
+    rgba(245,170,2,.07) 50%,
+    rgba(245,170,2,.04) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  animation: psp-beam-sweep 8s ease-in-out infinite;
+  opacity: .6;
+}
+
+.psp-spotlight {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,170,2,.1) 0%, transparent 70%);
+  pointer-events: none;
+  transition: transform .4s ease-out, opacity .4s ease-out;
+  z-index: 1;
+}
+
+/* --- carousel container --- */
+.psp-carousel-wrap {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  min-width: 0;
+  padding: 20px 0 40px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.psp-carousel-wrap:active {
+  cursor: grabbing;
+}
+
+.psp-carousel-viewport {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  padding: 10px 0;
+}
+
+.psp-carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 320px;
+  transform-style: preserve-3d;
+  transition: transform .45s cubic-bezier(.23,1,.32,1);
+}
+
+/* --- individual card --- */
+.psp-card-wrapper {
+  position: absolute;
+  width: 340px;
+  flex-shrink: 0;
+  transition: all .5s cubic-bezier(.23,1,.32,1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.psp-card {
+  position: relative;
+  padding: 28px 26px 24px;
+  border-radius: 20px;
+  background: rgba(11,18,32,.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(245,170,2,.12);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  overflow: hidden;
+  transition: all .5s cubic-bezier(.23,1,.32,1);
+  animation: psp-float 5s ease-in-out infinite;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.psp-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.08), transparent 40%, rgba(245,170,2,.04));
+  opacity: .4;
+  border-radius: 20px;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+.psp-card::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(245,170,2,.4), transparent);
+  opacity: .2;
+  transform: scaleX(.3);
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+/* active card golden glow */
+.psp-card-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: radial-gradient(ellipse at 50% 60%, rgba(245,170,2,.12), transparent 65%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* active card styles */
+.psp-card-wrapper.is-active .psp-card {
+  background: rgba(11,18,32,.92);
+  border-color: rgba(245,170,2,.4);
+  box-shadow:
+    0 36px 100px rgba(245,170,2,.14),
+    0 24px 70px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.psp-card-wrapper.is-active .psp-card::before {
+  opacity: .7;
+}
+
+.psp-card-wrapper.is-active .psp-card::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.psp-card-wrapper.is-active .psp-card-glow {
+  opacity: 1;
+  animation: psp-glow-pulse 3s ease-in-out infinite;
+}
+
+.psp-card-wrapper.is-active .psp-card-num {
+  color: rgba(245,170,2,.4);
+}
+
+/* --- card inner elements --- */
+.psp-card-head {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.psp-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow .35s ease, filter .35s ease;
+}
+
+.psp-card-wrapper.is-active .psp-card-icon {
+  filter: brightness(1.25);
+  box-shadow: 0 0 28px rgba(245,170,2,.22);
+}
+
+.psp-card-num {
+  position: relative;
+  z-index: 2;
+  color: rgba(255,255,255,.15);
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.06em;
+  transition: color .4s ease;
+}
+
+.psp-card-title {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.psp-card-desc {
+  position: relative;
+  z-index: 2;
+  color: rgba(229,231,235,.75);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.psp-card-wrapper:not(.is-active) .psp-card-desc {
+  color: rgba(229,231,235,.55);
+}
+
+.psp-card-wrapper:not(.is-active) .psp-card-title {
+  color: rgba(255,255,255,.7);
+}
+
+/* --- navigation dots --- */
+.psp-nav-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.psp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245,170,2,.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all .35s ease;
+  padding: 0;
+}
+
+.psp-dot.is-active {
+  background: #f5aa02;
+  border-color: #f5aa02;
+  box-shadow: 0 0 14px rgba(245,170,2,.45);
+  transform: scale(1.2);
+}
+
+.psp-dot:hover:not(.is-active) {
+  border-color: rgba(245,170,2,.6);
+}
+
+/* --- responsive --- */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .psp-carousel-track {
+    height: 300px;
+  }
+  .psp-card-wrapper {
+    width: 300px;
+  }
+  .psp-card {
+    min-height: 240px;
+    padding: 24px 22px 22px;
+  }
+  .psp-card-num { font-size: 36px; }
+}
+
+@media (max-width: 1023px) {
+  .psp-side-col { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .psp-carousel-wrap {
+    padding: 10px 0 24px;
+  }
+  .psp-carousel-track {
+    height: 290px;
+  }
+  .psp-card-wrapper {
+    width: 280px;
+  }
+  .psp-card {
+    min-height: 230px;
+    padding: 22px 20px 20px;
+    border-radius: 18px;
+    background: rgba(11,18,32,.9);
+  }
+  .psp-card-num { font-size: 32px; color: rgba(255,255,255,.2); }
+  .psp-card-title { font-size: 1.05rem; color: #fff; font-weight: 800; }
+  .psp-card-desc { font-size: 13px; color: rgba(229,231,235,.8); line-height: 1.6; }
+  .psp-card-wrapper:not(.is-active) .psp-card-desc { color: rgba(229,231,235,.6); }
+  .psp-nav-dots { gap: 8px; }
+  .psp-beam { opacity: .3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psp-card { animation: none !important; }
+  .psp-beam { animation: none !important; }
+  .psp-card-glow { animation: none !important; }
+  .psp-card-wrapper,
+  .psp-card,
+  .psp-card::before,
+  .psp-card::after,
+  .psp-card-glow,
+  .psp-dot,
+  .psp-card-num,
+  .psp-card-icon {
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Mobile swipe fix: allow vertical page scroll while receiving horizontal pointer gestures. */
+.psp-carousel-wrap {
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  overscroll-behavior-x: contain;
+}
+.psp-carousel-track,
+.psp-card-wrapper,
+.psp-card {
+  -webkit-user-drag: none;
+}

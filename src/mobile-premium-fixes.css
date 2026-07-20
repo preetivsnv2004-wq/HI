@@ -1,0 +1,114 @@
+/* ══════════════════════════════════════════════════════════════════════
+   MOBILE PREMIUM FIXES — 2026-07-04
+   Scope: Development page mobile polish + Marketing sticker overflow fix.
+   Additive only — loaded after final-fixes.css so it wins on equal
+   specificity. Desktop (>1024px) is intentionally left untouched.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────────
+   1) DEVELOPMENT PAGE — mobile & tablet polish
+   Scoped to .aurashine-dev-page (root wrapper of src/pages/development-page.js)
+   ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .aurashine-dev-page section { padding-inline: 16px; }
+}
+
+@media (max-width: 768px) {
+  .aurashine-dev-page { overflow-x: hidden; }
+
+  /* Hero: don't force a huge empty viewport on small phones */
+  .aurashine-dev-page section.min-h-\[92vh\] {
+    min-height: 0 !important;
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  /* Reduce oversized vertical rhythm from py-28 / py-20 on mobile */
+  .aurashine-dev-page section.py-28 { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .aurashine-dev-page section.py-20 { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+  /* Hero heading: keep it readable, never overflowing the viewport */
+  .aurashine-dev-page section.min-h-\[92vh\] h1 {
+    font-size: clamp(2.1rem, 8vw, 3rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  /* CTA buttons: stack cleanly, full width, never overlap */
+  .aurashine-dev-page .flex.flex-wrap.gap-4,
+  .aurashine-dev-page .flex.flex-wrap.gap-4.justify-center {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .aurashine-dev-page .flex.flex-wrap.gap-4 > a,
+  .aurashine-dev-page .flex.flex-wrap.gap-4.justify-center > a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Stat row under hero: let it wrap without crowding */
+  .aurashine-dev-page .flex.flex-wrap.gap-8 { gap: 20px 28px; }
+
+  /* Service cards: tighter padding, no forced multi-row spans on mobile */
+  .aurashine-dev-page .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
+    gap: 16px !important;
+  }
+  .aurashine-dev-page .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 > div {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+  .aurashine-dev-page a.relative.flex.flex-col.h-full.rounded-2xl {
+    padding: 18px !important;
+  }
+
+  /* Timeline cards: comfortable spacing, no cramped edges */
+  .aurashine-dev-page .grid.grid-cols-1.lg\:grid-cols-5 { gap: 14px; }
+
+  /* Terminal glass card image/content never exceeds viewport */
+  .aurashine-dev-page .rounded-2xl.overflow-hidden { max-width: 100%; }
+
+  /* Neutralize 3D tilt perspective on touch devices — avoids any
+     transform-related sub-pixel overflow flicker while scrolling */
+  .aurashine-dev-page [style*="perspective"] {
+    perspective: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aurashine-dev-page section.min-h-\[92vh\] { padding-top: 32px; padding-bottom: 36px; }
+  .aurashine-dev-page h2 { font-size: clamp(1.7rem, 8vw, 2.4rem) !important; }
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   2) MARKETING PAGE — decorative sticker overflow fix
+   Scoped to .mkt-sticker (floating badge component in
+   src/pages/marketing-page.js). Desktop keeps its original z-20 layering;
+   on mobile the stickers drop behind page content and shrink so they can
+   never sit on top of headlines or CTA buttons.
+   ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mkt-sticker {
+    z-index: 1 !important;
+    transform: scale(0.68) !important;
+    opacity: 0.55 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mkt-sticker { display: none !important; }
+}
+
+/* Extra safety: any decorative/marketing sticker-style element sitewide
+   should never block taps or force horizontal scroll on small screens. */
+@media (max-width: 768px) {
+  .marketing-sticker,
+  .decorative-sticker,
+  .floating-sticker {
+    pointer-events: none !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mkt-sticker { transition: none !important; }
+}
